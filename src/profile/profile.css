@@ -1,13 +1,11 @@
 #userInfo {
-  background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 #savedTranslations {
-  background-color: rgb(255, 255, 255);
-  /* border-left: solid 1px rgb(180, 180, 180); */
 }
 
 #profileContainer {
@@ -21,7 +19,8 @@
 }
 
 #savedTranslationsList {
-  margin-top: 20px;
+  max-width: 500px;
+  margin: 40px;
   padding: 0;
   list-style: none;
   border-top: solid 1px rgb(180, 180, 180);
@@ -33,9 +32,20 @@
   background-color: rgb(238, 238, 238);
   padding: 10px;
   border-bottom: solid 1px #ccc;
+  color: rgb(92, 92, 92);
 }
 
 #savedTranslationsTitle {
   background-color: #b497d6 !important;
-  color: #fff;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+#clearTranslationsBtn {
+  margin-left: 40px;
+}
+
+#userNameTxt {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
