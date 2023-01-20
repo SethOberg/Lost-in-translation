@@ -14,3 +14,30 @@ root.render(
     </div>
   </React.StrictMode>
 );
+
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from 'react-router-dom'
+
+function App () {
+return (
+<BrowserRouter>
+<div className="App">
+<Routes>
+<Route path="/" element={ <WelcomePage /> } />
+<Route path="/profile" element={ <Profile />} />
+<Route path="/translation" element={ <Translation />} />
+
+</Routes>
+
+</div>
+
+</BrowserRouter>
+
+
+)
+
+
+}
