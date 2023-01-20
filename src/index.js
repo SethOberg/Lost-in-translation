@@ -6,6 +6,7 @@ import WelcomePage from "./login/WelcomePage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Profile from "./profile/Profile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import TranslationPage from "./translation/translation";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<WelcomePage />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/translation" element={<TranslationPage />} />
         </Routes>
       </div>
     </BrowserRouter>
