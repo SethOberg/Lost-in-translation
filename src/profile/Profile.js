@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./profile.css";
 import profileImage from "../images/test.png";
+import Button from "react-bootstrap/Button";
 
 const Profile = () => {
   return (
@@ -12,9 +13,13 @@ const Profile = () => {
         <Col id="userInfo">
           <img src={profileImage} alt="" id="profileImageLarge" />
           <h4 id="userNameTxt">Username</h4>
-          <button className="purpleBtn" id="logOutBtn">
+          <Button
+            variant="primary"
+            className="purpleBtnBootstrap"
+            id="logOutBtn"
+          >
             Log out
-          </button>
+          </Button>
         </Col>
         <Col id="savedTranslations">
           <ul id="savedTranslationsList">
@@ -26,9 +31,13 @@ const Profile = () => {
             <li>Lorem ipsum</li>
             <li>Lorem ipsum</li>
           </ul>
-          <button className="purpleBtn" id="clearTranslationsBtn">
+          <Button
+            variant="primary"
+            className="purpleBtnBootstrap"
+            id="clearTranslationsBtn"
+          >
             Clear
-          </button>
+          </Button>
         </Col>
       </Row>
     </Container>

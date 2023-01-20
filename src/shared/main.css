@@ -38,3 +38,14 @@
   background-color: #7b5e9c;
   cursor: pointer;
 }
+
+.purpleBtnBootstrap {
+  background-color: #805aac !important;
+  border: none !important;
+  color: #fff !important;
+}
+
+.purpleBtnBootstrap:hover {
+  background-color: #402561 !important;
+  border: none !important;
+}
