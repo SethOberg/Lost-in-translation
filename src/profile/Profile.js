@@ -11,8 +11,10 @@ const Profile = () => {
       <Row>
         <Col id="userInfo">
           <img src={profileImage} alt="" id="profileImageLarge" />
-          <h4>Username</h4>
-          <button className="purpleBtn">Log out</button>
+          <h4 id="userNameTxt">Username</h4>
+          <button className="purpleBtn" id="logOutBtn">
+            Log out
+          </button>
         </Col>
         <Col id="savedTranslations">
           <ul id="savedTranslationsList">
@@ -24,7 +26,9 @@ const Profile = () => {
             <li>Lorem ipsum</li>
             <li>Lorem ipsum</li>
           </ul>
-          <button className="purpleBtn">Clear</button>
+          <button className="purpleBtn" id="clearTranslationsBtn">
+            Clear
+          </button>
         </Col>
       </Row>
     </Container>
