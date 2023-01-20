@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  margin-bottom: 100px;
   flex-direction: column;
   align-items: center;
 }
@@ -26,4 +27,31 @@
 
 #logInSection .form-control:hover {
   color: #000;
+}
+
+#helpTxt {
+  color: red !important;
+}
+
+#loginInput2 {
+  margin-top: 20px;
+}
+
+input#loginInput2 {
+  border: none !important;
+  background-color: #eaeaea !important;
+  color: #606060;
+  border-radius: 10px;
+  min-width: 200px;
+  padding: 10px;
+}
+
+#signUpBtn {
+  margin-top: 20px;
+}
+
+#inputHelpTxt {
+  color: red;
+  text-align: center;
+  font-size: 14px;
 }
