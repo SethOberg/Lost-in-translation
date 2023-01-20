@@ -1,0 +1,41 @@
+#userInfo {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#savedTranslations {
+  background-color: rgb(255, 255, 255);
+  /* border-left: solid 1px rgb(180, 180, 180); */
+}
+
+#profileContainer {
+}
+
+#profileImageLarge {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  margin-top: 20px;
+}
+
+#savedTranslationsList {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+  border-top: solid 1px rgb(180, 180, 180);
+  border-left: solid 1px rgb(180, 180, 180);
+  border-right: solid 1px rgb(180, 180, 180);
+}
+
+#savedTranslationsList li {
+  background-color: rgb(238, 238, 238);
+  padding: 10px;
+  border-bottom: solid 1px #ccc;
+}
+
+#savedTranslationsTitle {
+  background-color: #b497d6 !important;
+  color: #fff;
+}
