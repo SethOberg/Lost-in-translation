@@ -7,23 +7,26 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Profile from "./profile/Profile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
-      <Route path="/" exact component={WelcomePage} />
-      <Route path="/profile" component={Profile} />
+      <div>
+        <Routes>
+          <Route path="/" element={<WelcomePage />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
-}
+};
 
-export default App;
+//const WelcomePage = () =>
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <div>
-      <TranslationHeader />
-      <WelcomePage />
+      <App />
     </div>
   </React.StrictMode>
 );
