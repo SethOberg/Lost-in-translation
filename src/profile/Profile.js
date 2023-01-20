@@ -5,9 +5,12 @@ import Col from "react-bootstrap/Col";
 import "./profile.css";
 import profileImage from "../images/test.png";
 import Button from "react-bootstrap/Button";
+import TranslationHeader from "../shared/TranslationHeader";
 
 const Profile = () => {
   return (
+      <>
+      <TranslationHeader />
     <Container fluid id="profileContainer">
       <Row>
         <Col id="userInfo">
@@ -41,6 +44,7 @@ const Profile = () => {
         </Col>
       </Row>
     </Container>
+    </>
   );
 };
 

@@ -3,10 +3,12 @@ import WelcomeText from "./WelcomeText";
 import "./login.css";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import TranslationHeader from "../shared/TranslationHeader";
 
 const WelcomePage = () => {
   return (
     <div>
+      <TranslationHeader />
       <WelcomeText />
       <div id="logInSection">
         <div className="input-group mb-3" id="loginInput">
