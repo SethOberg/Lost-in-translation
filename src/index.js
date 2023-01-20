@@ -4,6 +4,19 @@ import "./shared/main.css";
 import TranslationHeader from "./shared/TranslationHeader";
 import WelcomePage from "./login/WelcomePage";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Profile from "./profile/Profile";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Route path="/" exact component={WelcomePage} />
+      <Route path="/profile" component={Profile} />
+    </BrowserRouter>
+  );
+}
+
+export default App;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,30 +27,3 @@ root.render(
     </div>
   </React.StrictMode>
 );
-
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from 'react-router-dom'
-
-function App () {
-return (
-<BrowserRouter>
-<div className="App">
-<Routes>
-<Route path="/" element={ <WelcomePage /> } />
-<Route path="/profile" element={ <Profile />} />
-<Route path="/translation" element={ <Translation />} />
-
-</Routes>
-
-</div>
-
-</BrowserRouter>
-
-
-)
-
-
-}
