@@ -1,20 +1,25 @@
 import React from "react";
 import WelcomeText from "./WelcomeText";
 import "./login.css";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 
 const WelcomePage = () => {
   return (
     <div>
       <WelcomeText />
       <div id="logInSection">
-        <div className="input-group mb-3">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Username"
+        <div className="input-group mb-3" id="loginInput">
+          {/* <InputGroup className="mb-3 test"> */}
+          <Form.Control
+            placeholder="Enter username..."
             aria-label="Username"
-            aria-describedby="basic-addon1"
+            aria-describedby="usernameHelpBlock"
           />
+          <Form.Text id="usernameHelpBlock" muted>
+            Show text depending on username ok or already taken
+          </Form.Text>
+          {/* </InputGroup> */}
         </div>
         <button class="purpleBtn">Log in</button>
       </div>
