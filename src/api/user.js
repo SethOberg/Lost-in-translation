@@ -1,4 +1,4 @@
-import { createHeaders } from "./index";
+import { createHeaders } from "./index.js";
 const apiUrl = process.env.REACT_APP_API_URL;
 
 const checkForUser = async (username) => {
@@ -8,11 +8,7 @@ const checkForUser = async (username) => {
       throw new Error("Could not complete request");
     }
     const data = await response.json;
-    //What is the purpose of returning null?
     return [null, data];
-    //Auto complete want to write it like
-    //if code does not work, try this
-    //const res = (await response).json;
   } catch (error) {
     return [error.message, []];
   }
@@ -23,17 +19,13 @@ const createUser = async (username) => {
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: createHeaders,
-      body: JSON.stringify({ username, orders: [] }),
+      body: JSON.stringify({ username, translations: [] }),
     });
     if (!response.ok) {
       throw new Error("Could create user with username " + username);
     }
     const data = await response.json;
-    //What is the purpose of returning null?
     return [null, data];
-    //Auto complete want to write it like
-    //if code does not work, try this
-    //const res = (await response).json;
   } catch (error) {
     return [error.message, []];
   }
