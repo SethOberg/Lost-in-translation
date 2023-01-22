@@ -46,6 +46,11 @@ input#loginInput2 {
   padding: 10px;
 }
 
+input#loginInput2:focus,
+input:focus {
+  outline: none;
+}
+
 #signUpBtn {
   margin-top: 20px;
 }

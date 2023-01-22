@@ -4,10 +4,11 @@ import "./login.css";
 import Form from "react-bootstrap/Form";
 import TranslationHeader from "../shared/TranslationHeader";
 import { useForm } from "react-hook-form";
+import { loginUser } from "../api/user";
 
 const userNameConfig = {
   required: true,
-  minLength: 2,
+  minLength: 3,
 };
 
 const WelcomePage = () => {
@@ -17,18 +18,32 @@ const WelcomePage = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async ({ username }) => {
+    const [error, user] = await loginUser(username);
+    console.log("Error: " + error);
+    console.log("User: " + user);
   };
 
-  console.log(errors);
+  //console.log(errors);
+
+  const errorMessage = (() => {
+    if (!errors.username) {
+      return null;
+    }
+    if (errors.username.type === "required") {
+      return <span>Username is required</span>;
+    }
+    if (errors.username.type === "minLength") {
+      return <span>Username too short, minimum length 3</span>;
+    }
+  })();
 
   return (
     <div>
       <TranslationHeader />
       <WelcomeText />
       <div id="logInSection">
-        <div className="input-group mb-3" id="loginInput">
+        {/* <div className="input-group mb-3" id="loginInput">
           <Form.Control
             placeholder="Enter username..."
             aria-label="Username"
@@ -38,7 +53,7 @@ const WelcomePage = () => {
             Username too short
           </Form.Text>
         </div>
-        <button className="purpleBtn">Log in</button>
+        <button className="purpleBtn">Log in</button> */}
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset>
@@ -50,12 +65,13 @@ const WelcomePage = () => {
             />
             <br />
             <p id="inputHelpTxt">
-              {errors.username && errors.username.type === "required" && (
+              {errorMessage}
+              {/* {errors.username && errors.username.type === "required" && (
                 <span>Username is required</span>
               )}
               {errors.username && errors.username.type === "minLength" && (
-                <span>Too short</span>
-              )}
+                <span>Username too short, minimum length 3</span>
+              )} */}
             </p>
           </fieldset>
           <button type="submit" className="purpleBtn" id="signUpBtn">
