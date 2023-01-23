@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import TranslationHeader from "../shared/TranslationHeader";
 import { useForm } from "react-hook-form";
 import { loginUser } from "../api/user";
+import { useState } from "react";
 
 const userNameConfig = {
   required: true,
@@ -19,12 +20,16 @@ const WelcomePage = () => {
   } = useForm();
 
   const onSubmit = async ({ username }) => {
+    setLoading(true);
     const [error, user] = await loginUser(username);
     console.log("Error: " + error);
     console.log("User: " + user);
+    setLoading(false);
   };
 
   //console.log(errors);
+
+  const [loading, setLoading] = useState(false);
 
   const errorMessage = (() => {
     if (!errors.username) {
@@ -74,9 +79,15 @@ const WelcomePage = () => {
               )} */}
             </p>
           </fieldset>
-          <button type="submit" className="purpleBtn" id="signUpBtn">
+          <button
+            type="submit"
+            disabled={loading}
+            className="purpleBtn"
+            id="signUpBtn"
+          >
             Get started
           </button>
+          {loading && <p>Logging in...</p>}
         </form>
       </div>
     </div>
