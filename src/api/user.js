@@ -7,7 +7,8 @@ const checkForUser = async (username) => {
     if (!response.ok) {
       throw new Error("Could not complete request");
     }
-    const data = await response.json;
+    const data = await response.json();
+
     return [null, data];
   } catch (error) {
     return [error.message, []];
@@ -18,16 +19,16 @@ const createUser = async (username) => {
   try {
     const response = await fetch(apiUrl, {
       method: "POST",
-      body: JSON.stringify({ username, translations: [] }),
       headers: {
         "Content-Type": "application/json",
         "x-api-key": process.env.REACT_APP_API_KEY,
       },
+      body: JSON.stringify({ username, translations: [] }),
     });
     if (!response.ok) {
       throw new Error("Could create user with username " + username);
     }
-    const data = await response.json;
+    const data = await response.json();
     return [null, data];
   } catch (error) {
     return [error.message, []];
@@ -42,9 +43,10 @@ export const loginUser = async (username) => {
   }
 
   if (user.length > 0) {
-    //user does not exist
+    //User already exists
     return [null, user.pop()];
   }
 
+  //User does not exist
   return await createUser(username);
 };
