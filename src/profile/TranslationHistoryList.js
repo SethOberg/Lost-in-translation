@@ -9,7 +9,7 @@ const TranslationHistoryList = ({ translations }) => {
     <TranslationHistoryItem key={test} translation={test} />
   ));
 
-  return <ul>{historyList}</ul>;
+  return <ul id="savedTranslationsList">{historyList}</ul>;
 };
 
 export default TranslationHistoryList;

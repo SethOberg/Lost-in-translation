@@ -33,9 +33,6 @@ const Profile = () => {
             <ul id="savedTranslationsList">
               <li id="savedTranslationsTitle">Saved translations</li>
             </ul>
-            <ul id="savedTranslationsList">
-              <li>Lorem ipsum</li>
-            </ul>
             <TranslationHistoryList translations={user.translations} />
             <Button
               variant="primary"
