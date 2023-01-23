@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { storageSave } from "../utils/storage";
 import { useUser } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
+import { STORAGE_KEY_USER } from "../const/storageKey";
 
 const userNameConfig = {
   required: true,
@@ -32,7 +33,7 @@ const WelcomePage = () => {
       setApiError(error);
     }
     if (userResponse != null) {
-      storageSave("lost-in-translation-user", userResponse);
+      storageSave(STORAGE_KEY_USER, userResponse);
       setUser(userResponse);
     }
     setLoading(false);
