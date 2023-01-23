@@ -18,8 +18,11 @@ const createUser = async (username) => {
   try {
     const response = await fetch(apiUrl, {
       method: "POST",
-      headers: createHeaders,
       body: JSON.stringify({ username, translations: [] }),
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": process.env.REACT_APP_API_KEY,
+      },
     });
     if (!response.ok) {
       throw new Error("Could create user with username " + username);
