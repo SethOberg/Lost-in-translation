@@ -5,7 +5,10 @@ import Form from "react-bootstrap/Form";
 import TranslationHeader from "../shared/TranslationHeader";
 import { useForm } from "react-hook-form";
 import { loginUser } from "../api/user";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { storageSave } from "../utils/storage";
+import { useUser } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 const userNameConfig = {
   required: true,
@@ -19,17 +22,31 @@ const WelcomePage = () => {
     formState: { errors },
   } = useForm();
 
+  const { user, setUser } = useUser();
+  const navigate = useNavigate();
+
   const onSubmit = async ({ username }) => {
     setLoading(true);
-    const [error, user] = await loginUser(username);
-    console.log("Error: " + error);
-    console.log("User: " + user);
+    const [error, userResponse] = await loginUser(username);
+    if (error != null) {
+      setApiError(error);
+    }
+    if (userResponse != null) {
+      storageSave("lost-in-translation-user", userResponse);
+      setUser(userResponse);
+    }
     setLoading(false);
   };
 
-  //console.log(errors);
-
   const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState(null);
+
+  useEffect(() => {
+    console.log("User changed " + user);
+    if (user !== null) {
+      navigate("profile");
+    }
+  }, [user, navigate]);
 
   const errorMessage = (() => {
     if (!errors.username) {
@@ -88,6 +105,7 @@ const WelcomePage = () => {
             Get started
           </button>
           {loading && <p>Logging in...</p>}
+          {apiError && <p>{apiError}</p>}
         </form>
       </div>
     </div>
