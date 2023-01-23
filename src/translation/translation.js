@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./translation.css";
+import withAuth from "../hoc/withAuth";
 
 const TranslationPage = () => {
   return (
@@ -41,4 +42,4 @@ const TranslationPage = () => {
   );
 };
 
-export default TranslationPage;
+export default withAuth(TranslationPage);
