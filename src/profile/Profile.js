@@ -7,8 +7,11 @@ import profileImage from "../images/test.png";
 import Button from "react-bootstrap/Button";
 import TranslationHeader from "../shared/TranslationHeader";
 import withAuth from "../hoc/withAuth";
+import { useUser } from "../context/UserContext";
 
 const Profile = () => {
+  const { user } = useUser();
+
   return (
     <>
       <TranslationHeader />
@@ -16,7 +19,7 @@ const Profile = () => {
         <Row>
           <Col id="userInfo">
             <img src={profileImage} alt="" id="profileImageLarge" />
-            <h4 id="userNameTxt">Username</h4>
+            <h4 id="userNameTxt">{user.username}</h4>
             <Button
               variant="primary"
               className="purpleBtnBootstrap"
