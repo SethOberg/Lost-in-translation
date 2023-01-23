@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import TranslationHeader from "../shared/TranslationHeader";
 import withAuth from "../hoc/withAuth";
 import { useUser } from "../context/UserContext";
+import TranslationHistoryList from "./TranslationHistoryList";
 
 const Profile = () => {
   const { user } = useUser();
@@ -31,13 +32,11 @@ const Profile = () => {
           <Col id="savedTranslations">
             <ul id="savedTranslationsList">
               <li id="savedTranslationsTitle">Saved translations</li>
-              <li>Lorem ipsum</li>
-              <li>Lorem ipsum</li>
-              <li>Lorem ipsum</li>
-              <li>Lorem ipsum</li>
-              <li>Lorem ipsum</li>
+            </ul>
+            <ul id="savedTranslationsList">
               <li>Lorem ipsum</li>
             </ul>
+            <TranslationHistoryList translations={user.translations} />
             <Button
               variant="primary"
               className="purpleBtnBootstrap"
