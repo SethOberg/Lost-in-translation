@@ -60,7 +60,11 @@ export const addTranslationHistory = async (sentence, userId) => {
     throw new Error("Could not retrieve translations history");
   }
   const data = await response.json();
-  let currentTranslations = data.translations;
+  let currentTranslations = [...data.translations];
+  console.log(typeof currentTranslations);
+  if (currentTranslations.length > 10) {
+    currentTranslations.shift();
+  }
   fetch(`${apiUrl}/${userId}`, {
     method: "PATCH", // NB: Set method to PATCH
     headers: {
