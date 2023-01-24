@@ -7,8 +7,11 @@ import "./translation.css";
 import withAuth from "../hoc/withAuth";
 import { useState } from "react";
 import SignLanguageBox from "./SignLanguageBox";
+import { useUser } from "../context/UserContext";
+import { addTranslationHistory } from "../api/user";
 
 const TranslationPage = () => {
+  const { user, setUser } = useUser();
   const [inputValue, setInputValue] = useState("");
   const [translationImages, setTranslationsImage] = useState([]);
   const handleInputChange = (event) => {
@@ -18,7 +21,7 @@ const TranslationPage = () => {
     console.log(inputValue);
   };
 
-  const handleClick = () => {
+  const handleClick = async () => {
     const tempArray = [];
     const sentence = inputValue.toLocaleLowerCase();
     for (let i = 0; i < inputValue.length; i++) {
@@ -34,6 +37,17 @@ const TranslationPage = () => {
     }
 
     setTranslationsImage(tempArray);
+    console.log(sentence + " this is the sentence");
+    console.log(user.id + " this is the user id");
+    if (sentence.length > 1 && sentence != " ") {
+      await storeDataInDB(sentence, user.id);
+    } else {
+      alert("please enter a word");
+    }
+  };
+
+  const storeDataInDB = async (sentence, userId) => {
+    await addTranslationHistory(sentence, userId);
   };
 
   return (
@@ -49,7 +63,7 @@ const TranslationPage = () => {
               className="translation-input"
               placeholder=" write something..."
               onChange={handleInputChange}
-              maxlength={48}
+              maxLength={48}
             ></input>
             <Button
               variant="outline-secondary"
