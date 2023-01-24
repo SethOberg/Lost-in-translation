@@ -22,14 +22,6 @@ const TranslationPage = () => {
     console.log(inputValue);
   };
 
-  const UserProfileLink = () => {
-    return (
-      <>
-        <NavLink to="/profile"> {user.username} </NavLink>
-      </>
-    );
-  };
-
   const handleClick = async () => {
     const tempArray = [];
     const sentence = inputValue.toLocaleLowerCase();
@@ -63,7 +55,7 @@ const TranslationPage = () => {
   return (
     <>
       <TranslationHeader />
-      <UserProfileLink />
+
       <div className="main-container">
         <div className="section-1">
           <InputGroup
