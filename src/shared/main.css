@@ -1,7 +1,12 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+
+
 * {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 #translationHeader {
@@ -37,4 +42,15 @@
 .purpleBtn:hover {
   background-color: #7b5e9c;
   cursor: pointer;
+}
+
+.purpleBtnBootstrap {
+  background-color: #805aac !important;
+  border: none !important;
+  color: #fff !important;
+}
+
+.purpleBtnBootstrap:hover {
+  background-color: #402561 !important;
+  border: none !important;
 }
