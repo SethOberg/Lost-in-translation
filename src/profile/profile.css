@@ -16,6 +16,7 @@
   height: 75px;
   border-radius: 100%;
   margin-top: 20px;
+  border: solid 1px #000;
 }
 
 #savedTranslationsList {
