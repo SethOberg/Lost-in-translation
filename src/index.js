@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Profile from "./profile/Profile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TranslationPage from "./translation/translation";
+import AppContext from "./context/AppContext";
 
 const App = () => {
   return (
@@ -28,7 +29,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <div>
-      <App />
+      <AppContext>
+        <App />
+      </AppContext>
     </div>
   </React.StrictMode>
 );

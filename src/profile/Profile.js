@@ -6,46 +6,59 @@ import "./profile.css";
 import profileImage from "../images/test.png";
 import Button from "react-bootstrap/Button";
 import TranslationHeader from "../shared/TranslationHeader";
+import withAuth from "../hoc/withAuth";
+import { useUser } from "../context/UserContext";
+import TranslationHistoryList from "./TranslationHistoryList";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
+
+  const { user } = useUser();
+
   return (
-      <>
+    <>
       <TranslationHeader />
-    <Container fluid id="profileContainer">
-      <Row>
-        <Col id="userInfo">
-          <img src={profileImage} alt="" id="profileImageLarge" />
-          <h4 id="userNameTxt">Username</h4>
-          <Button
-            variant="primary"
-            className="purpleBtnBootstrap"
-            id="logOutBtn"
-          >
-            Log out
-          </Button>
-        </Col>
-        <Col id="savedTranslations">
-          <ul id="savedTranslationsList">
-            <li id="savedTranslationsTitle">Saved translations</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-          </ul>
-          <Button
-            variant="primary"
-            className="purpleBtnBootstrap"
-            id="clearTranslationsBtn"
-          >
-            Clear
-          </Button>
-        </Col>
-      </Row>
-    </Container>
+      <Container fluid id="profileContainer">
+        <Row>
+          <Col id="userInfo">
+            <img src={profileImage} alt="" id="profileImageLarge" />
+            <h4 id="userNameTxt">{user.username}</h4>
+            <Button
+              variant="primary"
+              className="purpleBtnBootstrap"
+              id="profileGoToTranslationBtn"
+              onClick={() => {
+                navigate("/translation");
+              }}
+            >
+              Translate
+            </Button>
+            <Button
+              variant="primary"
+              className="purpleBtnBootstrap"
+              id="logOutBtn"
+            >
+              Log out
+            </Button>
+          </Col>
+          <Col id="savedTranslations">
+            <ul id="savedTranslationsList">
+              <li id="savedTranslationsTitle">Saved translations</li>
+            </ul>
+            <TranslationHistoryList translations={user.translations} />
+            <Button
+              variant="primary"
+              className="purpleBtnBootstrap"
+              id="clearTranslationsBtn"
+            >
+              Clear
+            </Button>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };
 
-export default Profile;
+export default withAuth(Profile);

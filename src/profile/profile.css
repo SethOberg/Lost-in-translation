@@ -37,6 +37,7 @@
 
 #savedTranslationsTitle {
   background-color: #b497d6 !important;
+  border: solid 1px #b497d6 !important;
   color: #fff !important;
   font-weight: bold;
 }
@@ -48,4 +49,8 @@
 #userNameTxt {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+#profileGoToTranslationBtn {
+  margin-bottom: 15px;
 }
