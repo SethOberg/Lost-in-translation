@@ -20,8 +20,7 @@ const createUser = async (username) => {
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "x-api-key": process.env.REACT_APP_API_KEY,
+        createHeaders,
       },
       body: JSON.stringify({ username, translations: [] }),
     });
