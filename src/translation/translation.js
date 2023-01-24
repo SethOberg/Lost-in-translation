@@ -9,6 +9,7 @@ import { useState } from "react";
 import SignLanguageBox from "./SignLanguageBox";
 import { useUser } from "../context/UserContext";
 import { addTranslationHistory } from "../api/user";
+import { NavLink } from "react-router-dom";
 
 const TranslationPage = () => {
   const { user, setUser } = useUser();
@@ -21,6 +22,14 @@ const TranslationPage = () => {
     console.log(inputValue);
   };
 
+  const UserProfileLink = () => {
+    return (
+      <>
+        <NavLink to="/profile"> {user.username} </NavLink>
+      </>
+    );
+  };
+
   const handleClick = async () => {
     const tempArray = [];
     const sentence = inputValue.toLocaleLowerCase();
@@ -29,6 +38,7 @@ const TranslationPage = () => {
         tempArray.push(
           <img
             src={`/individial_signs/${sentence.charAt(i)}.png`}
+            alt={"missing"}
             width={50}
             height={50}
           />
@@ -53,6 +63,7 @@ const TranslationPage = () => {
   return (
     <>
       <TranslationHeader />
+      <UserProfileLink />
       <div className="main-container">
         <div className="section-1">
           <InputGroup
