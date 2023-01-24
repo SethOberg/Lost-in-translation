@@ -2,17 +2,21 @@ import React from "react";
 import TranslationHistoryItem from "./TranslationHistoryItem";
 
 const TranslationHistoryList = ({ translations }) => {
-  //   const historyList = translations.map(translation =>
-  //     <TranslationHistoryItem key={translation} translation={translation} />;
-  // );
-  const historyList = translations.map((savedTranslation, index) => (
-    <TranslationHistoryItem
-      key={`${index}-${savedTranslation}`}
-      translation={savedTranslation}
-    />
-  ));
-
-  return <ul id="savedTranslationsList">{historyList}</ul>;
+  if (translations.length > 0) {
+    const historyList = translations.map((savedTranslation, index) => (
+      <TranslationHistoryItem
+        key={`${index}-${savedTranslation}`}
+        translation={savedTranslation}
+      />
+    ));
+    return <ul id="savedTranslationsList">{historyList}</ul>;
+  } else {
+    return (
+      <ul id="savedTranslationsList">
+        <li>No translations found</li>
+      </ul>
+    );
+  }
 };
 
 export default TranslationHistoryList;

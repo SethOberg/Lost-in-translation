@@ -43,7 +43,6 @@ const WelcomePage = () => {
   const [apiError, setApiError] = useState(null);
 
   useEffect(() => {
-    console.log("User changed " + user);
     if (user !== null) {
       navigate("profile");
     }
