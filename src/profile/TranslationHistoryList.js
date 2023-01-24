@@ -9,17 +9,11 @@ const TranslationHistoryList = ({ translations }) => {
         translation={savedTranslation}
       />
     ));
-
     return <ul id="savedTranslationsList">{historyList}</ul>;
   } else {
     return (
       <ul id="savedTranslationsList">
-        {
-          <TranslationHistoryItem
-            key={`${1}`}
-            translation={"No saved translations"}
-          />
-        }
+        <li>No translations found</li>
       </ul>
     );
   }

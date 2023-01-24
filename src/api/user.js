@@ -1,5 +1,6 @@
 import { createHeaders } from "./index.js";
 const apiUrl = process.env.REACT_APP_API_URL;
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const checkForUser = async (username) => {
   try {
@@ -20,7 +21,8 @@ const createUser = async (username) => {
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
-        createHeaders,
+        "Content-Type": "application/json",
+        "x-api-key": apiKey,
       },
       body: JSON.stringify({ username, translations: [] }),
     });
