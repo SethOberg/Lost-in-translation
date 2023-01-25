@@ -68,10 +68,15 @@ const TranslationPage = () => {
 
       <div className="main-container">
         <div className="section-1">
+          <h3>
+              Translate latin to ASL
+            <small class="text-muted"> (ASL alphabet)</small>
+          </h3>
           <InputGroup
             className="mb-3"
             style={{ height: "40%", marginLeft: "10%" }}
           >
+
             <input
               className="translation-input"
               placeholder="What do you want translated?"
@@ -85,8 +90,12 @@ const TranslationPage = () => {
             >
               Translate
             </Button>
+            <div id="recentTranslations" >
+          <NavLink to="/profile">{"Recent translations..."}</NavLink>
+          </div>
           </InputGroup>
         </div>
+
         <div className="section-2">
           <SignLanguageBox translationImages={translationImages} />
           <div className="under-line">
