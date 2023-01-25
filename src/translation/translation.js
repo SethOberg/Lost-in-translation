@@ -43,6 +43,8 @@ const TranslationPage = () => {
     console.log(user.id + " this is the user id");
     if (sentence.length > 1 && sentence != " ") {
       await storeDataInDB(sentence, user.id);
+
+      user.translations.push(sentence);
     } else {
       alert("please enter a word");
     }
