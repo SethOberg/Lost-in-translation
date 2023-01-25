@@ -10,6 +10,8 @@ import SignLanguageBox from "./SignLanguageBox";
 import { useUser } from "../context/UserContext";
 import { addTranslationHistory } from "../api/user";
 import { NavLink } from "react-router-dom";
+import { STORAGE_KEY_USER } from "../const/storageKey";
+import { storageSave } from "../utils/storage";
 
 const TranslationPage = () => {
   const { user, setUser } = useUser();
@@ -43,6 +45,10 @@ const TranslationPage = () => {
     console.log(user.id + " this is the user id");
     if (sentence.length > 1 && sentence != " ") {
       await storeDataInDB(sentence, user.id);
+
+      user.translations.push(sentence);
+      storageSave(STORAGE_KEY_USER, user);
+      setUser(user);
     } else {
       alert("please enter a word");
     }
