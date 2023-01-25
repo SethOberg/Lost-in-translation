@@ -42,6 +42,12 @@
   cursor: pointer;
 }
 
+.purpleBtn:disabled,
+.purpleBtn[disabled] {
+  background-color: #d4d4d4;
+  color: #636363;
+}
+
 .purpleBtnBootstrap {
   background-color: #805aac !important;
   border: none !important;
@@ -51,4 +57,23 @@
 .purpleBtnBootstrap:hover {
   background-color: #402561 !important;
   border: none !important;
+}
+
+.darkBtn {
+  padding: 10px;
+  color: #fff;
+  background-color: #525252;
+  border: none;
+  border-radius: 10px;
+}
+
+.darkBtn:hover {
+  background-color: #131313;
+  cursor: pointer;
+}
+
+.darkBtn:disabled,
+.darkBtn[disabled] {
+  background-color: #d4d4d4;
+  color: #636363;
 }

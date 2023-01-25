@@ -13,7 +13,9 @@ function HeaderLink({ username }) {
       {location.pathname === "/translation" ? (
         <div id="headerLoggedInUser">
           <NavLink to="/profile">{username}</NavLink>
+          <NavLink to="/profile">
           <img src={profileImage} alt="profileIcon" id="profileImageIcon" />
+          </NavLink>
         </div>
       ) : null}
     </div>

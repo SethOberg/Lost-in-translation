@@ -68,13 +68,18 @@ const TranslationPage = () => {
 
       <div className="main-container">
         <div className="section-1">
+          <h3>
+              Translate latin to ASL
+            <small class="text-muted"> (ASL alphabet)</small>
+          </h3>
           <InputGroup
             className="mb-3"
             style={{ height: "40%", marginLeft: "10%" }}
           >
+
             <input
               className="translation-input"
-              placeholder=" write something..."
+              placeholder="What do you want translated?"
               onChange={handleInputChange}
               maxLength={48}
             ></input>
@@ -82,22 +87,20 @@ const TranslationPage = () => {
               variant="outline-secondary"
               id="button-addon2"
               onClick={handleClick}
-              style={{
-                height: "50%",
-                backgroundColor: "lightblue",
-                borderTopRightRadius: "16px",
-                borderBottomRightRadius: "16px",
-              }}
             >
-              translate
+              Translate
             </Button>
+            <div id="recentTranslations" >
+          <NavLink to="/profile">{"Recent translations..."}</NavLink>
+          </div>
           </InputGroup>
         </div>
+
         <div className="section-2">
           <SignLanguageBox translationImages={translationImages} />
           <div className="under-line">
             <div className="bottom-translation-mark">
-              <div>translation</div>
+              <div>Translation© </div>
             </div>
           </div>
         </div>

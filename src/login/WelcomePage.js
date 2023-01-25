@@ -1,7 +1,6 @@
 import React from "react";
 import WelcomeText from "./WelcomeText";
 import "./login.css";
-import Form from "react-bootstrap/Form";
 import TranslationHeader from "../shared/TranslationHeader";
 import { useForm } from "react-hook-form";
 import { loginUser } from "../api/user";
@@ -14,6 +13,7 @@ import { STORAGE_KEY_USER } from "../const/storageKey";
 const userNameConfig = {
   required: true,
   minLength: 3,
+  maxLength: 25,
 };
 
 const WelcomePage = () => {
@@ -58,6 +58,9 @@ const WelcomePage = () => {
     if (errors.username.type === "minLength") {
       return <span>Username too short, minimum length 3</span>;
     }
+    if (errors.username.type === "maxLength") {
+      return <span>Username too long, maximum length 25</span>;
+    }
   })();
 
   return (
@@ -65,19 +68,7 @@ const WelcomePage = () => {
       <TranslationHeader />
       <WelcomeText />
       <div id="logInSection">
-        {/* <div className="input-group mb-3" id="loginInput">
-          <Form.Control
-            placeholder="Enter username..."
-            aria-label="Username"
-            aria-describedby="usernameHelpBlock"
-          />
-          <Form.Text id="usernameHelpBlock helpTxt" muted>
-            Username too short
-          </Form.Text>
-        </div>
-        <button className="purpleBtn">Log in</button> */}
-
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} id="loginForm">
           <fieldset>
             <input
               type="text"
@@ -86,16 +77,8 @@ const WelcomePage = () => {
               id="loginInput2"
             />
             <br />
-            <p id="inputHelpTxt">
-              {errorMessage}
-              {/* {errors.username && errors.username.type === "required" && (
-                <span>Username is required</span>
-              )}
-              {errors.username && errors.username.type === "minLength" && (
-                <span>Username too short, minimum length 3</span>
-              )} */}
-            </p>
           </fieldset>
+          <p id="inputHelpTxt">{errorMessage}</p>
           <button
             type="submit"
             disabled={loading}

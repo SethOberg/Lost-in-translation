@@ -12,6 +12,7 @@ import TranslationHistoryList from "./TranslationHistoryList";
 import { useNavigate } from "react-router-dom";
 import { storageSave } from "../utils/storage";
 import { STORAGE_KEY_USER } from "../const/storageKey";
+import { removeTranslationHistory } from "../api/user";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -25,9 +26,17 @@ const Profile = () => {
     }
   };
 
+  const clearTranslationHistory = async () => {
+    const removeData = window.confirm("Are you sure ?");
+    await removeTranslationHistory(user.id);
+    let temporaryUser = { ...user, translations: [] };
+    setUser(temporaryUser);
+    console.log(user);
+    storageSave(STORAGE_KEY_USER, temporaryUser);
+  };
+
   const logout = () => {
     storageSave(STORAGE_KEY_USER, null);
-
     setUser(null);
   };
 
@@ -39,38 +48,33 @@ const Profile = () => {
           <Col id="userInfo">
             <img src={profileImage} alt="" id="profileImageLarge" />
             <h4 id="userNameTxt">{user.username}</h4>
-            <Button
-              variant="primary"
-              className="purpleBtnBootstrap"
+            <button
+              className="purpleBtn"
               id="profileGoToTranslationBtn"
               onClick={() => {
                 navigate("/translation");
               }}
             >
               Translate
-            </Button>
-            <Button
-              variant="primary"
-              className="purpleBtnBootstrap"
+            </button>
+            <button
+              className="darkBtn"
               id="logOutBtn"
               onClick={handleLogoutClick}
             >
-              {" "}
               Log out
-            </Button>
+            </button>
           </Col>
           <Col id="savedTranslations">
-            <ul id="savedTranslationsList">
-              <li id="savedTranslationsTitle">Saved translations</li>
-            </ul>
+            <p id="savedTranslationsTitle">Previous translations</p>
             <TranslationHistoryList translations={user.translations} />
-            <Button
-              variant="primary"
-              className="purpleBtnBootstrap"
+            <button
+              className="darkBtn"
               id="clearTranslationsBtn"
+              onClick={clearTranslationHistory}
             >
               Clear
-            </Button>
+            </button>
           </Col>
         </Row>
       </Container>
