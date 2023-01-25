@@ -42,6 +42,12 @@
   cursor: pointer;
 }
 
+.purpleBtn:disabled,
+.purpleBtn[disabled] {
+  background-color: #d4d4d4;
+  color: #636363;
+}
+
 .purpleBtnBootstrap {
   background-color: #805aac !important;
   border: none !important;
