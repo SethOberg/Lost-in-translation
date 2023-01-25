@@ -74,7 +74,7 @@ const TranslationPage = () => {
           >
             <input
               className="translation-input"
-              placeholder=" write something..."
+              placeholder="What do you want translated?"
               onChange={handleInputChange}
               maxLength={48}
             ></input>
@@ -82,14 +82,8 @@ const TranslationPage = () => {
               variant="outline-secondary"
               id="button-addon2"
               onClick={handleClick}
-              style={{
-                height: "50%",
-                backgroundColor: "lightblue",
-                borderTopRightRadius: "16px",
-                borderBottomRightRadius: "16px",
-              }}
             >
-              translate
+              Translate
             </Button>
           </InputGroup>
         </div>
@@ -97,7 +91,7 @@ const TranslationPage = () => {
           <SignLanguageBox translationImages={translationImages} />
           <div className="under-line">
             <div className="bottom-translation-mark">
-              <div>translation</div>
+              <div>Translation© </div>
             </div>
           </div>
         </div>
