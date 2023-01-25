@@ -39,38 +39,29 @@ const Profile = () => {
           <Col id="userInfo">
             <img src={profileImage} alt="" id="profileImageLarge" />
             <h4 id="userNameTxt">{user.username}</h4>
-            <Button
-              variant="primary"
-              className="purpleBtnBootstrap"
+            <button
+              className="purpleBtn"
               id="profileGoToTranslationBtn"
               onClick={() => {
                 navigate("/translation");
               }}
             >
               Translate
-            </Button>
-            <Button
-              variant="primary"
-              className="purpleBtnBootstrap"
+            </button>
+            <button
+              className="redBtn"
               id="logOutBtn"
               onClick={handleLogoutClick}
             >
-              {" "}
               Log out
-            </Button>
+            </button>
           </Col>
           <Col id="savedTranslations">
-            <ul id="savedTranslationsList">
-              <li id="savedTranslationsTitle">Saved translations</li>
-            </ul>
+            <p id="savedTranslationsTitle">Previous translations</p>
             <TranslationHistoryList translations={user.translations} />
-            <Button
-              variant="primary"
-              className="purpleBtnBootstrap"
-              id="clearTranslationsBtn"
-            >
+            <button className="redBtn" id="clearTranslationsBtn">
               Clear
-            </Button>
+            </button>
           </Col>
         </Row>
       </Container>
