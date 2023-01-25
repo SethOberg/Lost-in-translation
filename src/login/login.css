@@ -60,3 +60,10 @@ input:focus {
   text-align: center;
   font-size: 14px;
 }
+
+#loginForm {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+}
