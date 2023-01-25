@@ -6,6 +6,7 @@ const WelcomeText = () => {
     <article id="WelcomeText">
       <img src={logo} alt="" width="150px" />
       <h1>Get started</h1>
+      <h5>Translate text to American sign language</h5>
     </article>
   );
 };
