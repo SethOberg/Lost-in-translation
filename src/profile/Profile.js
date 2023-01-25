@@ -12,6 +12,7 @@ import TranslationHistoryList from "./TranslationHistoryList";
 import { useNavigate } from "react-router-dom";
 import { storageSave } from "../utils/storage";
 import { STORAGE_KEY_USER } from "../const/storageKey";
+import { removeTranslationHistory } from "../api/user";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -25,9 +26,17 @@ const Profile = () => {
     }
   };
 
+  const clearTranslationHistory = async () => {
+    const removeData = window.confirm("Are you sure ?");
+    await removeTranslationHistory(user.id);
+    let temporaryUser = { ...user, translations: [] };
+    setUser(temporaryUser);
+    console.log(user);
+    storageSave(STORAGE_KEY_USER, temporaryUser);
+  };
+
   const logout = () => {
     storageSave(STORAGE_KEY_USER, null);
-
     setUser(null);
   };
 
@@ -68,6 +77,7 @@ const Profile = () => {
               variant="primary"
               className="purpleBtnBootstrap"
               id="clearTranslationsBtn"
+              onClick={clearTranslationHistory}
             >
               Clear
             </Button>
