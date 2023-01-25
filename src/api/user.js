@@ -91,3 +91,31 @@ export const addTranslationHistory = async (sentence, userId) => {
       console.log(error);
     });
 };
+
+export const removeTranslationHistory = async (userId) => {
+  fetch(`${apiUrl}/${userId}`, {
+    method: "PATCH", // NB: Set method to PATCH
+    headers: {
+      "content-type": "application/json",
+      "x-api-key": apiKey,
+    },
+    body: JSON.stringify({
+      // Provide new translations to add to user with id 1
+      translations: [],
+    }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Could not update translations history");
+      }
+      return response.json();
+    })
+    .then((updatedUser) => {
+      // updatedUser is the user with the Patched data
+      console.log("It worked bro!!!");
+      console.log(updatedUser);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
