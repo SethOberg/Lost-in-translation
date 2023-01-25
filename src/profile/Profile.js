@@ -58,7 +58,7 @@ const Profile = () => {
               Translate
             </button>
             <button
-              className="redBtn"
+              className="darkBtn"
               id="logOutBtn"
               onClick={handleLogoutClick}
             >
@@ -68,7 +68,11 @@ const Profile = () => {
           <Col id="savedTranslations">
             <p id="savedTranslationsTitle">Previous translations</p>
             <TranslationHistoryList translations={user.translations} />
-            <button className="redBtn" id="clearTranslationsBtn">
+            <button
+              className="darkBtn"
+              id="clearTranslationsBtn"
+              onClick={clearTranslationHistory}
+            >
               Clear
             </button>
           </Col>

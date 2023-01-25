@@ -59,7 +59,7 @@
   border: none !important;
 }
 
-.redBtn {
+.darkBtn {
   padding: 10px;
   color: #fff;
   background-color: #525252;
@@ -67,13 +67,13 @@
   border-radius: 10px;
 }
 
-.redBtn:hover {
+.darkBtn:hover {
   background-color: #131313;
   cursor: pointer;
 }
 
-.redBtn:disabled,
-.redBtn[disabled] {
+.darkBtn:disabled,
+.darkBtn[disabled] {
   background-color: #d4d4d4;
   color: #636363;
 }
