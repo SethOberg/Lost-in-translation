@@ -47,6 +47,10 @@ const TranslationPage = () => {
       await storeDataInDB(sentence, user.id);
 
       user.translations.push(sentence);
+
+      if (user.translations.length > 10) {
+        user.translations.shift();
+      }
       storageSave(STORAGE_KEY_USER, user);
       setUser(user);
     } else {
