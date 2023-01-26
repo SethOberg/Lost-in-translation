@@ -25,7 +25,13 @@ const WelcomePage = () => {
 
   const { user, setUser } = useUser();
   const navigate = useNavigate();
-
+  /**
+   * onSubmit is a function that handles the users login input. A request to the API will be sent with the input username.
+   * The function sets the User context for the whole applications if the user exists, otherwise it will not return nything.
+   *
+   * @param {username} username - A users username.
+   * @returns {none} This function will return a JSON response.
+   */
   const onSubmit = async ({ username }) => {
     setLoading(true);
     const [error, userResponse] = await loginUser(username);

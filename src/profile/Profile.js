@@ -31,7 +31,6 @@ const Profile = () => {
     await removeTranslationHistory(user.id);
     let temporaryUser = { ...user, translations: [] };
     setUser(temporaryUser);
-    console.log(user);
     storageSave(STORAGE_KEY_USER, temporaryUser);
   };
 

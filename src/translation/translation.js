@@ -24,7 +24,13 @@ const TranslationPage = () => {
     console.log(inputValue);
   };
 
-  const handleClick = async () => {
+  /**
+   * translateTextToSign is a function which recieves data from inputValue state and translates the text into sign language {images}.
+   *
+   * @param {none} none - an array of items to be added to the select list.
+   * @returns {none} This function does not return any value.
+   */
+  const translateTextToSign = async () => {
     const tempArray = [];
     const sentence = inputValue.toLocaleLowerCase();
     for (let i = 0; i < inputValue.length; i++) {
@@ -33,24 +39,21 @@ const TranslationPage = () => {
           <img
             src={`/individial_signs/${sentence.charAt(i)}.png`}
             alt={"missing"}
-            width={50}
-            height={50}
+            width={70}
+            height={70}
           />
         );
       }
     }
-
     setTranslationsImage(tempArray);
-    console.log(sentence + " this is the sentence");
-    console.log(user.id + " this is the user id");
     if (sentence.length > 1 && sentence != " ") {
       await storeDataInDB(sentence, user.id);
-
       user.translations.push(sentence);
 
       if (user.translations.length > 10) {
         user.translations.shift();
       }
+
       storageSave(STORAGE_KEY_USER, user);
       setUser(user);
     } else {
@@ -69,14 +72,13 @@ const TranslationPage = () => {
       <div className="main-container">
         <div className="section-1">
           <h3>
-              Translate latin to ASL
+            Translate latin to ASL
             <small class="text-muted"> (ASL alphabet)</small>
           </h3>
           <InputGroup
             className="mb-3"
             style={{ height: "40%", marginLeft: "10%" }}
           >
-
             <input
               className="translation-input"
               placeholder="What do you want translated?"
@@ -86,13 +88,13 @@ const TranslationPage = () => {
             <Button
               variant="outline-secondary"
               id="button-addon2"
-              onClick={handleClick}
+              onClick={translateTextToSign}
             >
               Translate
             </Button>
-            <div id="recentTranslations" >
-          <NavLink to="/profile">{"Recent translations..."}</NavLink>
-          </div>
+            <div id="recentTranslations">
+              <NavLink to="/profile">{"Recent translations..."}</NavLink>
+            </div>
           </InputGroup>
         </div>
 
