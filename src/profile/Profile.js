@@ -4,7 +4,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./profile.css";
 import profileImage from "../images/profileIcon.jpg";
-import Button from "react-bootstrap/Button";
 import TranslationHeader from "../shared/TranslationHeader";
 import withAuth from "../hoc/withAuth";
 import { useUser } from "../context/UserContext";
@@ -27,15 +26,15 @@ const Profile = () => {
   };
 
   const clearTranslationHistory = async () => {
-    const removeData = window.confirm("Are you sure ?");
-    await removeTranslationHistory(user.id);
-    let temporaryUser = { ...user, translations: [] };
-    setUser(temporaryUser);
-    storageSave(STORAGE_KEY_USER, temporaryUser);
+    if (window.confirm("Are you sure ?")) {
+      await removeTranslationHistory(user.id);
+      let temporaryUser = { ...user, translations: [] };
+      setUser(temporaryUser);
+      storageSave(STORAGE_KEY_USER, temporaryUser);
+    }
   };
 
   const logout = () => {
-    //storageSave(STORAGE_KEY_USER, null);
     storageDelete(STORAGE_KEY_USER);
     setUser(null);
   };
