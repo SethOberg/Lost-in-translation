@@ -28,7 +28,7 @@
   justify-content: left;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  position:relative;
+  position: relative;
   margin-bottom: 80px;
 }
 
@@ -75,6 +75,7 @@
   border-radius: 16px;
   height: 50%;
   width: 80%;
+  border: none;
 }
 
 .positioning-input-translation {
@@ -84,19 +85,24 @@
 }
 
 #button-addon2 {
-background-color: #bea6f2;
-color: rgb(255, 255, 255);
-height: 50%;
-border-top-right-radius: 16px;
-border-bottom-right-radius: 16px;
-border: solid 1.5px #000;
+  background-color: #bea6f2;
+  color: rgb(255, 255, 255);
+  height: 50%;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border: none !important;
+}
 
-
-
+#button-addon2:hover {
+  background-color: #937aca;
+  color: rgb(255, 255, 255);
 }
 
 .text-muted {
-  font-size: 75% ;
+  font-size: 75%;
+}
+
+#translationPageTitle {
 }
 
 #recentTranslations a {
