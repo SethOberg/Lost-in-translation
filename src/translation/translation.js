@@ -73,7 +73,7 @@ const TranslationPage = () => {
         <div className="section-1">
           <h3>
             Translate latin to ASL
-            <small class="text-muted"> (ASL alphabet)</small>
+            <small className="text-muted"> (ASL alphabet)</small>
           </h3>
           <InputGroup
             className="mb-3"
@@ -85,11 +85,7 @@ const TranslationPage = () => {
               onChange={handleInputChange}
               maxLength={48}
             ></input>
-            <Button
-              variant="outline-secondary"
-              id="button-addon2"
-              onClick={translateTextToSign}
-            >
+            <Button id="button-addon2" onClick={translateTextToSign}>
               Translate
             </Button>
             <div id="recentTranslations">
