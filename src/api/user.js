@@ -2,6 +2,12 @@ import { createHeaders } from "./index.js";
 const apiKey = process.env.REACT_APP_API_KEY;
 const apiUrl = process.env.REACT_APP_API_URL;
 
+/**
+ * checkForUser is a function which recieves a username input and sends a GET request to search for the requested user.
+ *
+ * @param {username} username - a username to search for available user.
+ * @returns {Array}  returns an array with response state and data.
+ */
 const checkForUser = async (username) => {
   try {
     const response = await fetch(`${apiUrl}?username=${username}`);
@@ -16,6 +22,12 @@ const checkForUser = async (username) => {
   }
 };
 
+/**
+ * createUser is a function which sends API POST request to an API endpoint upon creation of a new user.
+ *
+ * @param {username} username - a username for the new user that will be created.
+ * @returns {Array}  returns an array with response state and data.
+ */
 const createUser = async (username) => {
   try {
     const response = await fetch(apiUrl, {
@@ -36,6 +48,12 @@ const createUser = async (username) => {
   }
 };
 
+/**
+ * loginuser is a function which handles the login, it recieves a username value and searches through the API to check if the user exists.
+ *
+ * @param {username} username - an array of items to be added to the select list.
+ * @returns {Array} This function returns an array with response status code and a user. Will return null if user was not found.
+ */
 export const loginUser = async (username) => {
   const [checkError, user] = await checkForUser(username);
 
@@ -52,6 +70,13 @@ export const loginUser = async (username) => {
   return await createUser(username);
 };
 
+/**
+ * addTranslationHistory is a function stores a recent translated word or sentence.
+ * The function expects a String value and userId arguments to store the recent translation for the specific user in the API.
+ *
+ * @param {sentence, userId} sentence - the string to be added to the user's translation history.
+ * @returns {JSON} This function will return a JSON response.
+ */
 export const addTranslationHistory = async (sentence, userId) => {
   console.log(createHeaders);
   console.log("This is the api Url: " + apiUrl);
@@ -92,6 +117,13 @@ export const addTranslationHistory = async (sentence, userId) => {
     });
 };
 
+/**
+ * rempveTranslationHistory is a function which truncates all your translation history in the API.
+ * The function expects userId arguments.
+ *
+ * @param {sentence, userId} sentence - the string to be added to the user's translation history.
+ * @returns {JSON} This function will return a JSON response.
+ */
 export const removeTranslationHistory = async (userId) => {
   fetch(`${apiUrl}/${userId}`, {
     method: "PATCH", // NB: Set method to PATCH
