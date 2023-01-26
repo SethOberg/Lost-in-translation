@@ -87,7 +87,7 @@ export const addTranslationHistory = async (sentence, userId) => {
   const data = await response.json();
   let currentTranslations = [...data.translations];
   console.log(typeof currentTranslations);
-  if (currentTranslations.length > 10) {
+  if (currentTranslations.length > 9) {
     currentTranslations.shift();
   }
   fetch(`${apiUrl}/${userId}`, {
