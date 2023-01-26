@@ -9,6 +9,6 @@ Assignment 2, implemented according to requirements in assignment description.
 #### • Login page
 ![Login Page Image](https://i.ibb.co/cC2Z9Fk/MainPage.png)
 #### • Translation page 
-![Translate Page Image](https://i.ibb.co/9v2gqfx/translation-Page.png)
+![Translate Page Image](https://i.ibb.co/QpSDNzk/translate-Page2.png)
 #### • Profile page
 ![Translate Page Image](https://i.ibb.co/x8CbNHB/profile-Page.png)
