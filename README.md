@@ -12,3 +12,8 @@ Assignment 2, implemented according to requirements in assignment description.
 ![Translate Page Image](https://i.ibb.co/QpSDNzk/translate-Page2.png)
 #### • Profile page
 ![Translate Page Image](https://i.ibb.co/x8CbNHB/profile-Page.png)
+
+# Developers:
+#### • Milovan Glisovic 
+#### • Seth Öberg 
+#### • Ali Habesh
