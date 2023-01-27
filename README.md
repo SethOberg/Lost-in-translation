@@ -1,7 +1,6 @@
 Assignment 2, implemented according to requirements in assignment description.
 
-# Lost in Translation 
-
+# [Lost In Translation](https://assignment2-dusky.vercel.app/)
 #### Lost In Translation is a React Application for translating Latin languages into American sign language. The sign language will be represented as images.
 #### Each image represent a letter in sign language. 
 
